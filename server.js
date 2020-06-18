@@ -12,6 +12,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Run when a client connects 
 io.on('connection', socket => {
     console.log('New Socket Connection');
+
+    socket.emit('message', 'Welcome to ChatBro');
 });
 
 
