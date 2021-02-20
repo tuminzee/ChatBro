@@ -1,8 +1,8 @@
-const cool = require('cool-ascii-faces');
 const path = require('path');
 const http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
+const favicon = require('express-favicon');
 const formatMessage = require('./utils/messages');
 const {userJoin, getCurrentUser, userLeave, getRoomUsers} = require('./utils/users');
 
@@ -11,6 +11,7 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
 const botName = 'ChatBro Bot'
 
